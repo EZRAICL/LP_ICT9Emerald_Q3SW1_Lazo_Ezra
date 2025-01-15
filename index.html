@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter: PHP to USD & EUR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: mediumpurple;
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+        .converter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align:center;">
+    <img src="moneyicon.png" 
+     width="300" 
+     height="300" />
+ </div>
+
+    <h1>Currency Converter</h1>
+
+    <div class="converter">
+        <button onclick="convertCurrency()">Convert 100 PESOS</button>
+        <div id="conversionResults" class="result">
+            <!-- The conversion results will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Conversion rates (as of current data)
+        const mxnToUsdRate = 0.0556; // 1 PHP = 0.0556 USD
+        const mxnToEurRate = 0.0513; // 1 PHP = 0.0513 EUR
+
+        // Conversion function
+        function convertCurrency() {
+            const amountInMXN = 100;
+
+            // Converting to USD and EUR
+            const amountInUSD = (amountInMXN * mxnToUsdRate).toFixed(2);
+            const amountInEUR = (amountInMXN * mxnToEurRate).toFixed(2);
+
+            // Displaying the results
+            document.getElementById("conversionResults").innerHTML = `
+                <p>100 MXN is equal to ${amountInUSD} USD.</p>
+                <p>100 MXN is equal to ${amountInEUR} EUR.</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
+
+
